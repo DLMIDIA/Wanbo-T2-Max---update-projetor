@@ -8,9 +8,9 @@ Perfil de otimização, debloat seguro, scripts de automação e launcher ultral
 
 ## 📸 Antes e Depois
 
-| Antes (Launcher de Fábrica com Anúncios Zeasn) | Depois (Wanbo Home Limpo e Rápido) |
-| :---: | :---: |
-| ![Antes](before_zeasn.png) | ![Depois](after.png) |
+| Captura Inicial (Tela Azul / Prévia) | Antes (Launcher de Fábrica) | Depois (Wanbo Home Limpo) |
+| :---: | :---: | :---: |
+| ![Captura Inicial](initial_blue_screen.png) | ![Antes](before_zeasn.png) | ![Depois](after.png) |
 
 ### 🚀 Com Aplicativos Instalados (Ex: Saimo TV) & Horário Corrigido
 | Grade de Apps Completa | Horário e Fuso Corrigidos |

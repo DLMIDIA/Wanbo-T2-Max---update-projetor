@@ -10,9 +10,9 @@ Projeto completo de debloat (remoção de anúncios e bloatwares), otimização 
 
 ## 📸 Antes e Depois
 
-| Antes (Launcher de Fábrica com Anúncios Zeasn) | Depois (Novo Launcher Wanbo Home Limpo) |
-| :---: | :---: |
-| ![Antes](examples/wanbo-t2-max/before_zeasn.png) | ![Depois](examples/wanbo-t2-max/after.png) |
+| Captura Inicial (Tela Azul) | Antes (Launcher de Fábrica) | Depois (Novo Launcher Wanbo Home Limpo) |
+| :---: | :---: | :---: |
+| ![Captura Inicial](examples/wanbo-t2-max/initial_blue_screen.png) | ![Antes](examples/wanbo-t2-max/before_zeasn.png) | ![Depois](examples/wanbo-t2-max/after.png) |
 
 ### 🚀 Com Aplicativos Instalados (Ex: Saimo TV) & Horário Corrigido
 | Grade de Apps Completa | Fuso e Relógio Corrigidos |

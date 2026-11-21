@@ -47,6 +47,11 @@ Ao contrário de outros projetores mais modernos baseados em Android 9 ou 11, o 
 
 ## 3. Galeria Visual: Antes e Depois
 
+### 📸 Captura Inicial (Primeiro Registro / Tela Azul Pré-Otimização)
+| Captura Inicial do Dispositivo |
+| :---: |
+| ![Captura Inicial](initial_blue_screen.png) |
+
 ### 📸 Comparativo Principal: Tela Inicial
 | Antes (Launcher Zeasn com Anúncios) | Depois (Wanbo Home Ultraleve e Limpo) |
 | :---: | :---: |
