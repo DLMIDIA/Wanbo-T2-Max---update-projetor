@@ -1,5 +1,9 @@
 # Guia Passo a Passo: Manutenção, Otimização e Debloat do Projetor Wanbo T2 Max (T2 M+)
 
+<p align="center">
+  <img src="wanbo_t2_max_device.jpg" alt="Projetor Wanbo T2 Max" width="300" style="border-radius: 12px;">
+</p>
+
 > **Guia Técnico de Engenharia Reversa e Customização**  
 > **Dispositivo:** Wanbo T2 Max (Modelo `T2 M+`)  
 > **Plataforma:** MStar Semiconductor, Inc. (Plataforma Mainz / `msd358`, arquitetura `armeabi-v7a`)  
@@ -7,6 +11,21 @@
 > **Resolução:** 1920x1080 (Full HD, 240 dpi)  
 > **Memória RAM:** 882 MB (~1 GB)  
 > **Autor da Adaptação Wanbo:** [DLMIDIA](https://github.com/DLMIDIA)  
+
+---
+
+## 🔍 Modelos e Anatomia do Hardware
+
+O projetor **Wanbo T2 Max** foi fabricado em diferentes revisões:
+1. **Wanbo T2 Max Clássico (`T2 M+`) - Versão deste guia:**
+   - **SoC:** MStar Semiconductor Mainz (`msd358`), quad-core Cortex-A53, GPU Mali-400 MP2.
+   - **Sistema:** Android 6.0 Marshmallow (API 23, build userdebug).
+   - **Lente e Foco:** Foco óptico manual através da roda superior dentada.
+   - **Trapézio Digital:** Ajuste de 4 pontos (Keystone 4D) controlado pelo aplicativo MStar `com.example.zoomsettings`.
+   - **Entradas Físicas:** 1x HDMI traseiro (gerenciado por `com.mstar.tv.tvplayer.ui`), 1x USB 2.0 e 1x Saída de Áudio P2 (3.5mm).
+   - **Alerta de Compatibilidade:** No fórum XDA foi documentado que o firmware da versão Android 9 **não grava** nesta placa MStar. A otimização com remoção de bloatware e launcher de 16 KB é o único método seguro de revitalizar este aparelho sem inutilizá-lo.
+2. **Wanbo T2 Max Revisões Recentes (New / Blue / Android 9):**
+   - Utilizam SoCs Amlogic ou Allwinner com Android 9 Pie. Se você tiver esta versão, aplique a [Metodologia Universal](#7-metodologia-universal-para-qualquer-outro-projetor-android) abaixo.
 
 ---
 
@@ -186,7 +205,56 @@ adb shell pm enable cn.zeasn.launcher.vstoresubclient.mstar358
 
 ---
 
-## 6. Referências e Créditos
+## 6. Metodologia Universal para QUALQUER Outro Projetor Android
+
+Se você possui outro modelo de projetor (como **HY300, HY320, Wanbo T6, Formovie, Dangbei, XGIMI, Magcubic, ou projetores genéricos com chip Allwinner, Amlogic, Rockchip ou MStar**), a mesma lógica de engenharia deve ser aplicada:
+
+### O Ciclo em 5 Passos:
+1. **Sondagem (Probe):**
+   ```bash
+   adb shell getprop ro.board.platform
+   adb shell getprop ro.build.version.sdk
+   adb shell cat /proc/meminfo
+   ```
+2. **Localização do Hardware Crítico:**
+   Descubra os nomes dos pacotes responsáveis pelo trapézio (Keystone), foco e HDMI:
+   ```bash
+   adb shell dumpsys package | grep -iE "keystone|zoom|projector|tvplayer|source"
+   ```
+   *Guarde esses nomes para nunca desativá-los!*
+3. **Extração das Imagens de Partição (Golden Backup):**
+   Descubra onde ficam os blocos de partição:
+   - Allwinner: `/dev/block/by-name/`
+   - Amlogic: `/dev/block/bootdevice/by-name/`
+   - MStar: `/dev/block/platform/mstar_mci.0/by-name/`
+   Extraia `boot.img`, `recovery.img` e `system.img` via `adb exec-out "cat ..."`
+4. **Instalação do Launcher Compatível:**
+   Para Android 6 a 8, utilize o **Wanbo Home Launcher** (16 KB) deste repositório. Para Android 9+, utilize o launcher padrão do CleanYourTV.
+5. **Debloat Não Destrutivo:**
+   Nunca use `pm uninstall`. Use apenas:
+   ```bash
+   adb shell pm disable-user --user 0 <pacote>
+   ```
+   Dessa forma, qualquer app pode ser restaurado a qualquer momento com `pm enable`.
+
+---
+
+## 7. Como Executar com Agentes de IA (Google, Claude, Codex, Cursor)
+
+Você pode plugar qualquer agente de IA instalado no seu computador para executar este projeto de forma automatizada:
+
+### 🌐 Google Antigravity / Gemini CLI:
+> *"Conecte ao meu projetor via ADB no IP 192.168.x.x:5555. Leia as especificações em examples/wanbo-t2-max/PASSO-A-PASSO.md, faça o backup das partições na pasta local backup/, instale o launcher de 16KB, execute o script de debloat mantendo o HDMI e o aplicativo de trapézio, e ajuste o fuso horário para UTC-3."*
+
+### 🤖 Claude Code (Anthropic):
+> *"Analise o repositório DLMIDIA/Wanbo-T2-Max---update-projetor. Conecte ao projetor via adb connect no IP informado, liste os pacotes instalados, execute o backup e aplique as regras de debloat de scripts/debloat.sh com confirmação antes de desativar os pacotes."*
+
+### 💻 OpenAI Codex / Aider / Cursor:
+> *"Abra o arquivo examples/wanbo-t2-max/tv.json e debloat.txt. Automatize a conexão ADB com o projetor, valide que o wanbo-launcher.apk responde ao evento de tecla HOME (keycode 3) e desligue as escalas de animação no sistema Android para 0.0x."*
+
+---
+
+## 8. Referências e Créditos
 
 1. **goIAgo / Iago** ([goiago.com](https://goiago.com)) — Pelo guia de referência *"Projetor HY300: limpeza e otimização com Claude Code"* (v1.0, 2026), que definiu as melhores práticas de backup de partições de firmware e protocolo de aprovação passo a passo.
 2. **Gathin23** ([CleanYourTV](https://github.com/Gathin23/cleanyourtv)) — Pela comunidade e repositório central de debloat para Android TV.
