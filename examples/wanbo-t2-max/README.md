@@ -1,6 +1,8 @@
 # Wanbo T2 Max (T2 M+) · Guia de Otimização e Debloat
 
-Perfil de otimização, debloat seguro e launcher ultra-leve desenvolvido especificamente para o projetor **Wanbo T2 Max** (plataforma **MStar Mainz / msd358** com Android 6.0 Marshmallow).
+Perfil de otimização, debloat seguro, scripts de automação e launcher ultraleve desenvolvido especificamente para o projetor **Wanbo T2 Max** (plataforma **MStar Mainz / msd358** com Android 6.0 Marshmallow).
+
+> 📖 **Para o guia completo com todas as explicações técnicas, acesse:** [`PASSO-A-PASSO.md`](PASSO-A-PASSO.md)
 
 ---
 
@@ -26,12 +28,26 @@ Perfil de otimização, debloat seguro e launcher ultra-leve desenvolvido especi
 
 ---
 
+## 📂 Conteúdo Deste Diretório
+
+- **[`PASSO-A-PASSO.md`](PASSO-A-PASSO.md)**: Manual detalhado de manutenção, backup e debloat.
+- **[`launcher/`](launcher/)**: Código-fonte Java completo, script de build e APK compilado de 16 KB (`wanbo-launcher.apk`).
+- **[`scripts/`](scripts/)**:
+  - `backup.sh`: Script de backup completo de partições MStar, APKs e configurações.
+  - `debloat.sh`: Script de automação para desativação de bloatwares e ajuste de animações.
+  - `restore.sh`: Script de reversão (rollback) para reativar todos os pacotes.
+  - `fix_timezone.sh`: Script para ajuste e sincronização do fuso horário brasileiro no Android 6.
+- **[`debloat.txt`](debloat.txt)**: Lista exata dos pacotes removidos e mantidos.
+- **[`tv.json`](tv.json)**: Metadados estruturados do modelo para integração no CleanYourTV.
+
+---
+
 ## 🛡️ O Que Foi Mantido Intacto (Hardware e Recursos)
 * **Zoom e Keystone 4D (Correção de Trapézio):** `com.example.zoomsettings` mantido com atalho direto no topo.
 * **Entrada HDMI e AV:** `com.mstar.tv.tvplayer.ui` mantido com atalho direto no topo.
 * **Drivers de Imagem e Áudio:** MStar TV Services intactos.
 * **Espelhamento de Tela:** EShare, AirPlay e Wi-Fi Display funcionais.
-* **Google Play Store & VLC:** 100% preservados.
+* **Google Play Store & Reprodutores de Mídia:** 100% preservados.
 
 ---
 
@@ -40,7 +56,8 @@ Consulte o arquivo [`debloat.txt`](debloat.txt) para a lista exata dos pacotes r
 
 ---
 
-## 🙏 Créditos e Agradecimentos
-* **Gathin23** ([CleanYourTV](https://github.com/Gathin23/cleanyourtv)) - Estrutura e metodologia de debloat para TVs e projetores Android.
-* **goIAgo / Iago** ([goiago.com](https://goiago.com)) - Pelo excelente guia base do projetor HY300 com Claude Code.
-* **DLMIDIA / Daniel Silva** ([github.com/DLMIDIA](https://github.com/DLMIDIA)) - Diagnóstico, engenharia reversa do Wanbo T2 Max, criação do launcher personalizado em Java puro, correção do fuso horário brasileiro e documentação.
+## 🙏 Créditos e Referências
+
+* **Documento Base de Referência:** *"Projetor HY300: limpeza e otimização com Claude Code"* por **goIAgo / Iago** ([goiago.com](https://goiago.com)), Versão 1.0 (Novembro de 2026).
+* **Gathin23** ([CleanYourTV](https://github.com/Gathin23/cleanyourtv)) — Estrutura e metodologia de debloat para TVs e projetores Android.
+* **DLMIDIA / Daniel Silva** ([github.com/DLMIDIA](https://github.com/DLMIDIA)) — Diagnóstico, engenharia reversa do Wanbo T2 Max, criação do launcher personalizado em Java puro, correção do fuso horário brasileiro e documentação passo a passo.

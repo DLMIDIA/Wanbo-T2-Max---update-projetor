@@ -4,6 +4,8 @@ Observed on one projector, in France, in a single session. This is a device repo
 shell user cannot disable anything on this firmware, so nothing was disabled. It also records what this repo's
 launcher needed to run on Android 6; that build is a local copy, not something this repository ships.
 
+> 💡 **Update (November 2026):** A full debloat suite, 16 KB native pure-Java launcher, automated scripts, and step-by-step documentation achieving +45% free RAM (173MB to 252MB) are available in [`examples/wanbo-t2-max/`](../../examples/wanbo-t2-max/README.md) by DLMIDIA, adapting the goIAgo HY300 guide.
+
 The T2 Max was sold in two versions. This note is about the **Android 6** one. The Android 9 T2 Max has a different
 mainboard; owners on XDA report that its firmware will not flash on the Android 6 unit, and there is no custom ROM
 for this MStar board, so the Android version cannot be raised.
