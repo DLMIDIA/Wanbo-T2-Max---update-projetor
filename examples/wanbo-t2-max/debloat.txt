@@ -1,0 +1,22 @@
+# Wanbo T2 Max / T2 M+ (MStar / Android 6.0) Debloat List
+# Safe to disable with pm disable-user --user 0 <pkg>
+
+# Zeasn Bloatware & Ad Services
+cn.zeasn.launcher.vstoresubclient.mstar358
+cn.zeasn.toptech.projector.msd358.vstoresubclient
+com.zeasn.services.general
+
+# Factory / Production / Diagnostic tools
+toptech.mid.sugar.appkillerservice
+com.toptech.factorytools
+mstar.factorymenu.ui
+
+# Unused Input Methods & Printing
+com.android.inputmethod.pinyin
+com.android.printspooler
+
+# GPU & Memory heavy Live Wallpapers
+com.android.galaxy4
+com.android.phasebeam
+com.android.noisefield
+com.android.wallpaper.livepicker

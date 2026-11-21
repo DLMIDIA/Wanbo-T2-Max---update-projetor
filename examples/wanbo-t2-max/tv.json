@@ -1,0 +1,6 @@
+{
+  "tv": "Wanbo T2 Max / T2 M+ (MStar Semiconductor Mainz platform, msd358)",
+  "os": "Android 6.0 Marshmallow (API 23, build aosp_bennet-userdebug 6.0 MRA58K W073_DC.1080T2.Zeasn.21032609)",
+  "brand": "Wanbo",
+  "notes": "Zeasn TV store, Zeasn factory launcher with ads, AppKillerService and factory diagnostic tools removed; hardware zoom and 4D keystone (com.example.zoomsettings), HDMI player (com.mstar.tv.tvplayer.ui) and MStar drivers kept intact; Brazil daylight saving time fix applied (persist.sys.timezone set to America/Bahia); animations disabled for 2x faster UI response; RAM increased by 45% (from 173MB to 252MB free)."
+}
